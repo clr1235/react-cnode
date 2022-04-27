@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths');
 const {styleRules} = require('./rules/styleRules.js');
 const jsRules = require('./rules/jsRules');
+const fileRules = require('./rules/fileRules');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -26,6 +27,7 @@ module.exports = {
         rules: [
             ...jsRules,
             ...styleRules,
+            ...fileRules,
         ]
     },
     plugins: [
