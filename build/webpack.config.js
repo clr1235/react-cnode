@@ -1,10 +1,9 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const paths = require('./paths');
+const {FILE_EXTENSIONS} = require('./constants')
 const {styleRules} = require('./rules/styleRules.js');
 const jsRules = require('./rules/jsRules');
 const fileRules = require('./rules/fileRules');
+const plugins = require('./plguins')
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -18,7 +17,7 @@ module.exports = {
         chunkFilename: 'chunk/[name].[chunkhash:8].js',
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
+        extensions: FILE_EXTENSIONS
     },
     module: {
         // 将缺失的导出提示成错误而不是警告
@@ -30,11 +29,7 @@ module.exports = {
             ...fileRules,
         ]
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: `${paths.appSrc}/index.html`
-        })
-    ],
+    plugins,
     devServer: {
         client: {
             // 当出现编译错误或警告时，在浏览器中显示全屏覆盖。
