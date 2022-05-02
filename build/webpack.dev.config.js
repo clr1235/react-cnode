@@ -1,24 +1,13 @@
 const path = require('path');
-const {FILE_EXTENSIONS} = require('./constants')
+const { merge } = require('webpack-merge');
+
+const baseConfig = require('./webpack.base');
 const {styleRules} = require('./rules/styleRules.js');
 const jsRules = require('./rules/jsRules');
 const fileRules = require('./rules/fileRules');
 const plugins = require('./plguins')
 
-module.exports = {
-    mode: process.env.NODE_ENV,
-    entry: {
-        app: path.join(__dirname, '../src/index.tsx'),
-    },
-    output: {
-        path: path.join(__dirname, '../dist'),
-        filename: '[name].[chunkhash:8].bundle.js',
-        // publicPath: "/",
-        chunkFilename: 'chunk/[name].[chunkhash:8].js',
-    },
-    resolve: {
-        extensions: FILE_EXTENSIONS
-    },
+module.exports = merge(baseConfig, {
     module: {
         // 将缺失的导出提示成错误而不是警告
         strictExportPresence: true,
@@ -51,4 +40,4 @@ module.exports = {
 
         }
     },
-}
+})

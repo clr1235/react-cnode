@@ -1,6 +1,8 @@
 const path = require('path');
-const isEnvDevelopment = process.env.NODE_ENV === 'development';
-const isEnvProduction = process.env.NODE_ENV === 'production';
+const {
+    isDev,
+    isProd,
+} = require('../constants')
 // loader匹配文件
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
@@ -9,8 +11,8 @@ const lessModuleRegex = /\.module\.(less)$/;
 
 const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
-        isEnvDevelopment && require.resolve('style-loader'),
-        // isEnvProduction && {
+        isDev && require.resolve('style-loader'),
+        // isProd && {
         //     // 生产环境使用 MiniCssExtractPlugin提取css文件
         // },
         {
