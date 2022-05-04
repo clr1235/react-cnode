@@ -1,12 +1,30 @@
 const path = require('path');
-const { merge } = require('webpack-merge');
 
-const baseConfig = require('./webpack.base');
+
+const config = require('./config')
+const {fileExtensions} = require('./constants')
 const styleRules = require('./rules/styleRules');
 const jsRules = require('./rules/jsRules');
 const fileRules = require('./rules/fileRules');
 const plugins = require('./plguins')
-module.exports = merge(baseConfig, {
+module.exports = {
+    mode: process.env.NODE_ENV,
+    entry: {
+        app: path.join(__dirname, '../src/index.tsx'),
+    },
+    output: {
+        path: path.join(__dirname, '../dist'),
+        filename: 'js/[name].[chunkhash:8].bundle.js',
+        // publicPath: "/",
+        chunkFilename: 'js/chunk/[name].[chunkhash:8].js',
+        // 此项决定了资源模块的输出位置
+        assetModuleFilename: 'static/images/[name].[hash:8][ext]',
+    },
+    resolve: {
+        extensions: fileExtensions
+    },
+    // 此项控制是否生成，以及如何生成source map
+    devtool: config.sourceMap,
     module: {
         // 将缺失的导出提示成错误而不是警告
         strictExportPresence: true,
@@ -23,25 +41,5 @@ module.exports = merge(baseConfig, {
         ]
     },
     plugins,
-    devServer: {
-        client: {
-            // 当出现编译错误或警告时，在浏览器中显示全屏覆盖。
-            overlay: true,
-            // 在浏览器中以百分比显示编译进度。
-            progress: false,
-            // 告诉 dev-server 它应该尝试重新连接客户端的次数。当为 true 时，它将无限次尝试重新连接。
-            reconnect: true,
-        },
-        // 启用gzip 压缩
-        compress: true,
-        port: 9000,
-        // 启用webpack的模块热替换
-        hot: true,
-        // 告诉 dev-server 在服务器已经启动后打开默认的浏览器
-        open: true,
-        // 代理---处理跨域转发
-        proxy: {
-
-        }
-    },
-})
+    
+}
