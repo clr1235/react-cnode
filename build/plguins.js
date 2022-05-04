@@ -17,7 +17,8 @@ const basePlugins = [
     isDev && new webpack.HotModuleReplacementPlugin(),
     // 生产环境抽取css代码需配置 MiniCssExtractPlugin.loader一起使用
     isProd && new MiniCssExtractPlugin({
-        filename: 'css/[name].[hash:6].css'
+        filename: 'static/css/[name].[contenthash:8].css',
+        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
     })
 ].filter(Boolean);
 

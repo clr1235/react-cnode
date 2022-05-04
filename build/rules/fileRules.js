@@ -30,7 +30,7 @@ module.exports = [
             {
                 loader: require.resolve('file-loader'),
                 options: {
-                name: 'static/images/svg/[name].[hash:6].[ext]',
+                name: 'static/images/svg/[name].[hash:8].[ext]',
                 },
             },
         ],

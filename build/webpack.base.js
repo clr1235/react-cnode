@@ -13,7 +13,7 @@ module.exports = {
         // publicPath: "/",
         chunkFilename: 'js/chunk/[name].[chunkhash:8].js',
         // 此项决定了资源模块的输出位置
-        assetModuleFilename: 'static/images/[name].[hash:6][ext]',
+        assetModuleFilename: 'static/images/[name].[hash:8][ext]',
     },
     resolve: {
         extensions: fileExtensions
