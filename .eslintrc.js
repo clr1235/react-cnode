@@ -25,5 +25,7 @@ module.exports =  {
     ],
     // 添加一些自己的规则
     "rules": {
+      // 允许使用require引入文件
+      '@typescript-eslint/no-var-requires': 'off'
     }
 }
