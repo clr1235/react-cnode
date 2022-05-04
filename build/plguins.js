@@ -16,7 +16,9 @@ const basePlugins = [
     // 开发环境启用HMR
     isDev && new webpack.HotModuleReplacementPlugin(),
     // 生产环境抽取css代码需配置 MiniCssExtractPlugin.loader一起使用
-    isProd && new MiniCssExtractPlugin()
+    isProd && new MiniCssExtractPlugin({
+        filename: 'css/[name].[hash:6].css'
+    })
 ].filter(Boolean);
 
 module.exports = basePlugins;

@@ -9,9 +9,11 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, '../dist'),
-        filename: '[name].[chunkhash:8].bundle.js',
+        filename: 'js/[name].[chunkhash:8].bundle.js',
         // publicPath: "/",
-        chunkFilename: 'chunk/[name].[chunkhash:8].js',
+        chunkFilename: 'js/chunk/[name].[chunkhash:8].js',
+        // 此项决定了资源模块的输出位置
+        assetModuleFilename: 'static/images/[name].[hash:6][ext]',
     },
     resolve: {
         extensions: fileExtensions
