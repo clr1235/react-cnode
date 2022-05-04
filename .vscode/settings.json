@@ -12,4 +12,14 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.run": "onType",
+  "eslint.options": {
+    "extensions": [".js", ".vue", ".jsx", ".tsx"]
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+
+
 }
