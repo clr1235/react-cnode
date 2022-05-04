@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, Outlet } from "react-router-dom";
 import { Button } from "antd";
 
 import styles from "./assets/style/app.less";
@@ -6,11 +7,11 @@ import styles from "./assets/style/app.less";
 function App() {
   return (
     <div className={styles.app}>
-      <div>
-        <Button type="primary" size="large" shape="round">
-          learn React hooks
-        </Button>
-      </div>
+      <Button type="primary" size="large" shape="round">
+        learn React hooks
+      </Button>
+      <Link to="/invoices">去invoices</Link>
+      <Outlet />
     </div>
   );
 }
