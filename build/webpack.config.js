@@ -32,7 +32,7 @@ module.exports = {
         // loaders
         rules: [
             {
-                // 遍历一下所有的loader，直到某一个符合要求
+                // oneOf是一种性能优化，文件只能匹配数组内的一个loader ，避免多次去匹配没有必要的loader
                 oneOf: [
                     ...jsRules,
                     ...styleRules,
@@ -44,4 +44,18 @@ module.exports = {
     plugins,
     // 优化
     optimization,
+    // 控制bundle信息的显示
+    // stats: 'errors-warnings',
+    stats: {
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false,
+      timings: false,
+      errors: true,
+      env: false,
+      version: false,
+      hash: false
+    }
 }

@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-// 该插件将为你生成一个 HTML5 文件， 
+// 该插件将为你生成一个 HTML5 文件，
 // 在 body 中使用 script 标签引入你所有 webpack 生成的 bundle
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -22,7 +22,7 @@ const basePlugins = [
     isProd && new MiniCssExtractPlugin({
         filename: 'static/css/[name].[contenthash:8].css',
         chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-    })
+    }),
 ].filter(Boolean);
 
 module.exports = basePlugins;
