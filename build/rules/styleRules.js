@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const {
     isDev,
     isProd,
@@ -8,13 +9,11 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const lessRegex = /\.(less)$/;
 const lessModuleRegex = /\.module\.(less)$/;
-
 const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
         isDev && require.resolve('style-loader'),
-        // isProd && {
-        //     // 生产环境使用 MiniCssExtractPlugin提取css文件
-        // },
+        // 生产环境使用 MiniCssExtractPlugin提取css文件
+        isProd && MiniCssExtractPlugin.loader,
         {
             loader: require.resolve('css-loader'),
             options: cssOptions,
@@ -41,21 +40,16 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
                       'postcss-normalize', // PostCSS归一化，可让您使用formantize.css或Sanitize.css的各个部分。
                 ]
               },
-              sourceMap: true,
             },
         },
-    ]
+    ].filter(Boolean); // .filter(Boolean)会将数组中的false项剔除掉
     if (preProcessor) {
-        if (preProcessor) {
-            loaders.push(
-              {
-                loader: require.resolve(preProcessor),
-                options: {
-                  sourceMap: true,
-                },
-              }
-            );
-          }
+        loaders.push(
+            {
+              loader: require.resolve(preProcessor),
+              options: {},
+            }
+        );
     }
     return loaders
 }
@@ -77,9 +71,8 @@ const styleRules = [
                 // 建议：开发环境使用 '[path][name]__[local]'  生产环境使用 '[hash:base64]'
                 localIdentName: "[path][name]__[local]--[hash:base64:5]",
                 // 允许为本地标识符名称重新定义基本的 loader 上下文。
-                localIdentContext: path.resolve(__dirname, "src"),
+                localIdentContext: path.resolve(__dirname, "../../src"),
             },
-            sourceMap: true,
         }),
         // 注意，所有导入文件都会受到 tree shaking 的影响。
         // 这意味着，如果在项目中使用类似 css-loader 并 import 一个 CSS 文件，
@@ -95,9 +88,8 @@ const styleRules = [
             modules: {
                 mode: 'local',
                 localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                localIdentContext: path.resolve(__dirname, "src"),
+                localIdentContext: path.resolve(__dirname, "../../src"),
             },
-            sourceMap: true,
         }),
     },
     // 配置支持less
@@ -110,9 +102,8 @@ const styleRules = [
             modules: {
                 mode: 'icss',
                 localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                localIdentContext: path.resolve(__dirname, "src"),
+                localIdentContext: path.resolve(__dirname, "../../src"),
             },
-            sourceMap: true,
         }, 'less-loader'),
         sideEffects: true,
     },
@@ -125,14 +116,9 @@ const styleRules = [
             modules: {
                 mode: 'local',
                 localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                localIdentContext: path.resolve(__dirname, "src"),
+                localIdentContext: path.resolve(__dirname, "../../src"),
             },
-            sourceMap: true,
         }, 'less-loader'),
     }
 ]
-
-module.exports = {
-    getStyleLoaders,
-    styleRules
-}
+module.exports = styleRules;

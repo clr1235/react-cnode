@@ -2,20 +2,24 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 
 const baseConfig = require('./webpack.base');
-const {styleRules} = require('./rules/styleRules.js');
+const styleRules = require('./rules/styleRules');
 const jsRules = require('./rules/jsRules');
 const fileRules = require('./rules/fileRules');
 const plugins = require('./plguins')
-
 module.exports = merge(baseConfig, {
     module: {
         // 将缺失的导出提示成错误而不是警告
         strictExportPresence: true,
         // loaders
         rules: [
-            ...jsRules,
-            ...styleRules,
-            ...fileRules,
+            {
+                // 遍历一下所有的loader，直到某一个符合要求
+                oneOf: [
+                    ...jsRules,
+                    ...styleRules,
+                    ...fileRules,
+                ]
+            }
         ]
     },
     plugins,

@@ -1,4 +1,5 @@
 const path = require('path')
+const config = require('./config')
 const {fileExtensions} = require('./constants')
 
 module.exports = {
@@ -15,4 +16,6 @@ module.exports = {
     resolve: {
         extensions: fileExtensions
     },
+    // 此项控制是否生成，以及如何生成source map
+    devtool: config.sourceMap,
 }
