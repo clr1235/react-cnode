@@ -1,12 +1,13 @@
 const path = require('path');
 
-
 const config = require('./config')
 const {fileExtensions} = require('./constants')
 const styleRules = require('./rules/styleRules');
 const jsRules = require('./rules/jsRules');
 const fileRules = require('./rules/fileRules');
 const plugins = require('./plguins')
+const optimization = require('./optimization')
+
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: {
@@ -41,5 +42,6 @@ module.exports = {
         ]
     },
     plugins,
-    
+    // 优化
+    optimization,
 }
