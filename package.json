@@ -8,13 +8,20 @@
     "prepare": "husky install",
     "prettier:check": "prettier --check .",
     "dev": "cross-env NODE_ENV=development APP_ENV=dev webpack-dev-server  --config build/webpack.dev.config.js",
-    "build": "cross-env NODE_ENV=production APP_ENV=prod webpack  --config build/webpack.config.js"
+    "build": "cross-env NODE_ENV=production APP_ENV=prod webpack  --config build/webpack.prod.config.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/clr1235/react-cnode.git"
   },
-  "keywords": ["webpack", "react", "mobx", "react-router", "antd", "axios"],
+  "keywords": [
+    "webpack",
+    "react",
+    "mobx",
+    "react-router",
+    "antd",
+    "axios"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -65,6 +72,7 @@
     "@types/react": "^18.0.5",
     "@types/react-dom": "^18.0.1",
     "antd": "^4.20.2",
+    "axios": "^0.27.2",
     "babel-loader": "^8.2.5",
     "mobx": "^6.5.0",
     "mobx-react-lite": "^3.3.0",
