@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/clr1235/react-cnode.git"
   },
-  "keywords": [],
+  "keywords": ["webpack", "react", "mobx", "react-router", "antd", "axios"],
   "author": "",
   "license": "ISC",
   "bugs": {
