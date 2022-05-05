@@ -18,7 +18,7 @@ root.render(
             index
             element={
               <main style={{ padding: "1rem" }}>
-                <p>Select an invoice</p>
+                <p>选择一个发票吧a</p>
               </main>
             }
           />

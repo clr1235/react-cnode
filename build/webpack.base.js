@@ -14,10 +14,10 @@ const baseConf = {
       app: path.join(__dirname, '../src/index.tsx'),
   },
   output: {
-      path: path.join(__dirname, '../dist'),
+      path: config.assetsRoot,
       // chunkhash表示打包完的文件内容的hash
-      filename: 'js/[name].[chunkhash:8].bundle.js',
-      // publicPath: "/",
+      filename: 'js/[name].[chunkhash:8].js',
+      // publicPath: "",
       chunkFilename: 'js/chunk/[name].[chunkhash:8].js',
       // 此项决定了资源模块的输出位置
       assetModuleFilename: 'static/images/[name].[hash:8][ext]',
@@ -43,6 +43,7 @@ const baseConf = {
       ]
   },
   plugins,
+  performance: false,
   // 优化
   optimization,
   // 控制bundle信息的显示

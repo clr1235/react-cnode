@@ -1,5 +1,11 @@
 const { merge } = require('webpack-merge');
+const webpack = require('webpack')
+// 该插件将为你生成一个 HTML5 文件，
+// 在 body 中使用 script 标签引入你所有 webpack 生成的 bundle
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base')
+const paths = require('./paths');
+
 module.exports = merge(baseConfig, {
     devServer: {
         client: {
@@ -22,4 +28,38 @@ module.exports = merge(baseConfig, {
 
         }
     },
+    optimization: {
+      // 提取公共模块 包括第三方库和自定义工具库
+      splitChunks: {
+        // 表示选择哪些chunk进行优化。
+          chunks: "all",  // async表示抽取异步模块，all表示对所有模块生效，initial表示对同步模块生效
+          minSize: 30000, // 模块超过30k自动被抽离成公共模块
+          minChunks: 1, // 模块被引用>=1次，便分割
+          // 缓存组
+          cacheGroups: {
+            // 禁用任何的默认缓存组
+            default: false,
+            // 抽取所有的第三方库
+            libraries: {
+                chunks: 'all',
+                idHint: 'thirdPartyLibraries',
+                name: 'libraries',
+                // 控制此缓存组选择的模块
+                test: /[\\/]node_modules[\\/]/
+            },
+          }
+      },
+    },
+    plugins: [
+      // HtmlWebpackPlugin 简化了 HTML 文件的创建，以便为你的 webpack 包提供服务。
+      // 这对于那些文件名中包含哈希值，并且哈希值会随着每次编译而改变的 webpack 包特别有用。
+      // 你可以让该插件为你生成一个 HTML 文件，使用 lodash 模板提供模板，或者使用你自己的 loader。
+      new HtmlWebpackPlugin({
+        title: 'webpackv5 + react',
+        template: `${paths.appSrc}/index.html`,
+        filename: 'index.html',
+      }),
+      // 开发环境启用HMR
+      new webpack.HotModuleReplacementPlugin(),
+    ]
 })
