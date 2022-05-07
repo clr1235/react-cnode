@@ -7,19 +7,19 @@ const fileExtensions = [".ts", ".tsx", ".js", "jsx", '.json']
 // 单独打包的第三方库
 const vendor = ['react', 'react-dom', 'react-router-dom', 'mobx', 'mobx-react-lite', 'antd', 'axios']
 const usedSourceMap = (node_env) => {
-    switch (node_env) {
-        case 'development': return 'source-map';
-        case 'production': return 'cheap-module-source-map';
-        default: return 'source-map'
-    }
+  switch (node_env) {
+    case 'development': return 'source-map';
+    case 'production': return 'cheap-module-source-map';
+    default: return 'source-map'
+  }
 }
 
 module.exports = {
-    mode,
-    isDev,
-    isProd,
-    appEnv,
-    fileExtensions,
-    usedSourceMap,
-    vendor
+  mode,
+  isDev,
+  isProd,
+  appEnv,
+  fileExtensions,
+  usedSourceMap,
+  vendor
 }

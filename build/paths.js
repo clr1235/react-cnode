@@ -7,5 +7,5 @@ console.log(process.cwd(), 'cwd---', appDirectory)
 // 生成文件的绝对路径
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 module.exports = {
-    appSrc: resolveApp('src')
+  appSrc: resolveApp('src')
 }

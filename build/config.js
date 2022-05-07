@@ -1,6 +1,6 @@
 const path = require('path')
 
-const {appEnv, isDev} = require('./constants')
+const { appEnv, isDev } = require('./constants')
 
 // 静态资源地址
 const STATICDOMAIN = appEnv === 'prod' ? '.' : '';

@@ -5,10 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 
 const basePlugins = [
-    new CleanWebpackPlugin({
-      verbose: false,  //开启在控制台输出信息
-      root: path.resolve(__dirname, `./../dist/${constants.appEnv}`)
-    }),
+  new CleanWebpackPlugin({
+    verbose: false,  //开启在控制台输出信息
+    root: path.resolve(__dirname, `./../dist/${constants.appEnv}`)
+  }),
 ].filter(Boolean);
 
 module.exports = basePlugins;
