@@ -7,6 +7,7 @@ const jsRules = require('./rules/jsRules');
 const fileRules = require('./rules/fileRules');
 const plugins = require('./plguins')
 const optimization = require('./optimization')
+const alias = require('./alias')
 
 const baseConf = {
   mode: process.env.NODE_ENV,
@@ -23,7 +24,8 @@ const baseConf = {
     assetModuleFilename: 'static/images/[name].[hash:8][ext]',
   },
   resolve: {
-    extensions: fileExtensions
+    extensions: fileExtensions,
+    alias,
   },
   module: {
     // 将缺失的导出提示成错误而不是警告

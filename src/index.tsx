@@ -5,8 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "normalize.css";
 // 引入文件
 import App from "./App";
-import Invoices from "./routes/invoices";
-import Invoice from "./routes/invoice";
+import Invoices from "@routes/invoices";
+import Invoice from "@routes/invoice";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
