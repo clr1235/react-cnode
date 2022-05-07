@@ -25,7 +25,7 @@
     "experimentalDecorators": true, // 启用实验性的ES装饰器。
     "resolveJsonModule": true, //是否允许把json文件当做模块进行解析
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": false, // 不生成输出文件
     "jsx": "react-jsx",
   },
   "include": [

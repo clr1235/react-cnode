@@ -1,6 +1,6 @@
 const paths = require('../paths');
 module.exports = [{
-  test: /\.(js|mjs|jsx|ts|tsx)$/,
+  test: /\.(js|mjs|jsx)$/,
   include: paths.appSrc,
   use: {
     // 当有设置cacheDirectory时，指定的目录将用来缓存 loader 的执行结果。
@@ -11,5 +11,11 @@ module.exports = [{
       // 引入 @babel/plugin-transform-runtime 并且使所有辅助代码从这里引用。
       plugins: ['@babel/plugin-transform-runtime'],
     }
+  }
+}, {
+  test: /\.(ts|tsx)$/,
+  include: paths.appSrc,
+  use: {
+    loader: 'ts-loader',
   }
 }]
