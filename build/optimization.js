@@ -1,4 +1,4 @@
-const constants = require('./constants')
+// const constants = require('./constants')
 const config = require('./config')
 // webpack v5 自带了terser-webpack-plugin，如果想自定义配置，则仍需要安装该插件
 // 该插件使用 terser 来压缩 JavaScript。
