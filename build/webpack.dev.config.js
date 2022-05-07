@@ -5,6 +5,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base')
 const paths = require('./paths');
+const config = require('./config');
 
 module.exports = merge(baseConfig, {
     devServer: {
@@ -18,9 +19,7 @@ module.exports = merge(baseConfig, {
         },
         // 启用gzip 压缩
         compress: true,
-        port: 9000,
-        // 启用webpack的模块热替换
-        hot: true,
+        port: config.devPort,
         // 告诉 dev-server 在服务器已经启动后打开默认的浏览器
         open: true,
         // 代理---处理跨域转发
@@ -61,5 +60,21 @@ module.exports = merge(baseConfig, {
       }),
       // 开发环境启用HMR
       new webpack.HotModuleReplacementPlugin(),
-    ]
+    ],
+    // 控制bundle信息的显示
+    stats: {
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false,
+      errors: true,
+      env: false,
+      version: false,
+      hash: false,
+      // 添加构建日期与时间信息
+      builtAt: false,
+      // 添加时间信息
+      timings: true,
+    },
 })

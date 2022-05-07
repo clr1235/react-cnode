@@ -25,8 +25,6 @@ const baseConf = {
   resolve: {
       extensions: fileExtensions
   },
-  // 此项控制是否生成，以及如何生成source map
-  devtool: config.sourceMap,
   module: {
       // 将缺失的导出提示成错误而不是警告
       strictExportPresence: true,
@@ -46,20 +44,6 @@ const baseConf = {
   performance: false,
   // 优化
   optimization,
-  // 控制bundle信息的显示
-  // stats: 'errors-warnings',
-  stats: {
-    colors: true,
-    modules: false,
-    children: false,
-    chunks: false,
-    chunkModules: false,
-    timings: false,
-    errors: true,
-    env: false,
-    version: false,
-    hash: false
-  }
 }
 
 
