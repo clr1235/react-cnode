@@ -14,6 +14,7 @@ export default class User {
       token: "aaa",
     };
     // 自动将已经存在的对象属性并且使得它们可观察
+    // makeAutoObservable 不能被用于带有 super 的类或 子类。
     makeAutoObservable(this);
   }
   /**
