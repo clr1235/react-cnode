@@ -6,7 +6,7 @@ const {appEnv, isDev} = require('./constants')
 const STATICDOMAIN = appEnv === 'prod' ? '.' : '';
 
 module.exports = {
-  devPort: 8080,
+  devPort: 9000,
   srcPath: path.resolve(__dirname, './../src'),
   // 输出的html文件
   indexHtml: path.resolve(__dirname, `./../dist/${appEnv}/index.html`),
