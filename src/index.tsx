@@ -4,10 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import "normalize.css";
 // 引入文件
 import App from "./App";
+import store from "@store/index";
+import StoreContext from "./contexts/storeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <BrowserRouter>
-    <App />
+    <StoreContext.Provider value={store}>
+      <App />
+    </StoreContext.Provider>
   </BrowserRouter>
 );

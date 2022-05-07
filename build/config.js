@@ -14,7 +14,7 @@ module.exports = {
   assetsSubDirectory: 'static',
   // 占位域名
   assetsPublicPath: isDev ? '/' : `${STATICDOMAIN}/`,
-  sourceMap: appEnv === 'dev' ? 'eval' : appEnv === 'prod' ? 'source-map' : false,
+  sourceMap: appEnv === 'dev' ? 'eval-source-map' : appEnv === 'prod' ? 'source-map' : false,
   // 是否压缩分离css代码
   extractCss: appEnv !== 'dev',
 }

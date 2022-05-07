@@ -46,6 +46,7 @@ const baseConf = {
   performance: false,
   // 优化
   optimization,
+  devtool: config.sourceMap
 }
 
 

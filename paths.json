@@ -22,6 +22,12 @@
       ],
       "@store/*": [
         "src/store/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@contexts/*": [
+        "src/contexts/*"
       ]
     }
   }
