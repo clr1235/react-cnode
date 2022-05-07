@@ -28,6 +28,8 @@ module.exports = merge(baseConfig, {
         }
     },
     optimization: {
+      // 开发环境不压缩代码
+      minimize: false,
       // 提取公共模块 包括第三方库和自定义工具库
       splitChunks: {
         // 表示选择哪些chunk进行优化。
