@@ -28,6 +28,9 @@
       ],
       "@contexts/*": [
         "src/contexts/*"
+      ],
+      "@api/*": [
+        "src/api/*"
       ]
     }
   }

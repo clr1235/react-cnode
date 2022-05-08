@@ -24,7 +24,11 @@ module.exports = merge(baseConfig, {
     open: true,
     // 代理---处理跨域转发
     proxy: {
-
+      '/api/v1': {
+        // 当遇到 /api 路径时，将其转换成 target 的值
+        target: 'http://127.0.0.1:7001',
+        changeOrigin: true,
+      }
     }
   },
   watchOptions: {

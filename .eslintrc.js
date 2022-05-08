@@ -28,6 +28,8 @@ module.exports = {
     // 允许使用require引入文件
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    // 允许使用any
+    '@typescript-eslint/no-explicit-any': 'off',
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "off",

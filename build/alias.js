@@ -9,4 +9,5 @@ module.exports = {
   "@assets": path.resolve(__dirname, '../src/assets'),
   "@hooks": path.resolve(__dirname, '../src/hooks'),
   "@contexts": path.resolve(__dirname, '../src/contexts'),
+  "@api": path.resolve(__dirname, '../src/api'),
 }
