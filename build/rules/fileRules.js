@@ -4,6 +4,7 @@ module.exports = [
   {
     // 资源模块(asset module)是一种模块类型，它允许使用资源文件（字体，图标等）而无需配置额外 loader。
     test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+    // test: /\.(png|jpe?g|gif|eot|ttf|woff|woff2|mp4)$/i,
     type: 'asset',
     parser: {
       dataUrlCondition: {

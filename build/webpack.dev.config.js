@@ -27,6 +27,10 @@ module.exports = merge(baseConfig, {
 
     }
   },
+  watchOptions: {
+    ignored: /node_modules/,
+    aggregateTimeout: 600,
+  },
   optimization: {
     // 开发环境不压缩代码
     minimize: false,
