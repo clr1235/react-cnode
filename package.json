@@ -76,6 +76,7 @@
     "axios": "^0.27.2",
     "babel-loader": "^8.2.5",
     "mobx": "^6.5.0",
+    "mobx-persist-store": "^1.0.6",
     "mobx-react-lite": "^3.3.0",
     "normalize.css": "^8.0.1",
     "react": "^18.0.0",
