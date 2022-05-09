@@ -9,9 +9,6 @@ import { toJS } from "mobx";
 import Api from "@api/index";
 import { useEffect, useState } from "react";
 function App() {
-  const { userStore } = useStore();
-  userStore.setToken("ttt");
-  console.log(toJS(userStore), "store-=-=-=", userStore);
   const [data, setData] = useState({});
   useEffect(() => {
     const fetchData = {

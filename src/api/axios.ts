@@ -1,7 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { notification } from "antd";
-import { toJS } from "mobx";
-// import { useStore } from "@hooks/storeHook";
 
 // 创建一个数组用于存储每个请求的取消函数和ajax标识符
 const pending = [];
@@ -34,14 +32,16 @@ const instance = axios.create(options);
 // 请求拦截器
 instance.interceptors.request.use(
   function (config: AxiosRequestConfig) {
-    // const { userStore } = useStore();
+    let userInfo = {
+      token: "",
+    };
+    const userInfoStr = localStorage.getItem("userInfo");
+    userInfoStr && (userInfo = JSON.parse(userInfoStr));
+    console.log(localStorage.getItem("userInfo"), "-=-=-=-=-");
     // 每次发送请求钱判断token是否存在
     // 如果存在，则统一在http请求的和header加上token，这样的话后端就可以根据token判断登录情况
     // 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断
-    // const { state } = toJS(userStore)
-    // if (state?.token) {
-    //   config.headers.common['Authorization'] = state?.token;
-    // }
+    config.headers.common["Authorization"] = userInfo.token;
     // 在一个ajax发送前执行一下取消操作
     removePending(config);
     config.cancelToken = new CancelToken(function (cancel) {
@@ -96,6 +96,7 @@ const errorHandle = (status, other) => {
     // 401: 未登录状态，跳转登录页
     case 401:
       // 跳转登陆页
+
       break;
     // 403 token过期
     // 清除token并跳转登录页
