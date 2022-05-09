@@ -20,7 +20,7 @@
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "noUnusedLocals": true, // 检查只声明、未使用的局部变量(只提示不报错)
+    "noUnusedLocals": false, // 检查只声明、未使用的局部变量(只提示不报错)
     "importHelpers": true, // 通过tslib引入helper函数，文件必须是模块
     "experimentalDecorators": true, // 启用实验性的ES装饰器。
     "resolveJsonModule": true, //是否允许把json文件当做模块进行解析

@@ -1,13 +1,15 @@
 // import { AxiosRequestConfig } from "axios";
-import axiosHttp from "../axiosHttp";
+import axiosInstance from "../axios";
+import base from "../contants";
+
+const baseURL = base.cNode;
 
 const getTopics = (params: any) => {
-  const options = {
-    url: "/topics",
-    method: "GET",
-    data: params,
+  const url = `${baseURL}/topics`;
+  const conf = {
+    params,
   };
-  return axiosHttp(options);
+  return axiosInstance.get(url, conf);
 };
 
 export default {

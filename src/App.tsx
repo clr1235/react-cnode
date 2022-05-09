@@ -22,6 +22,7 @@ function App() {
     };
     const getTopics = async () => {
       const { data } = await Api.loginService.getTopics(fetchData);
+      console.log(data, "data-=-=-=");
       setData(data);
     };
     console.log(data, "data-0-0-0");
