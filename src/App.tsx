@@ -2,9 +2,8 @@ import { useRoutes } from "react-router-dom";
 import routes from "@router/index";
 import { useStore } from "@hooks/storeHook";
 import { toJS } from "mobx";
-// import { Button } from "antd";
 
-// import styles from "./assets/style/app.less";
+import "./assets/style/app.less";
 // import starUrl, { ReactComponent as Star } from './assets/svg/react.svg'
 import Api from "@api/index";
 import { useEffect, useState } from "react";
