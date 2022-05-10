@@ -32,6 +32,11 @@ const instance = axios.create(options);
 // 请求拦截器
 instance.interceptors.request.use(
   function (config: AxiosRequestConfig) {
+    // 检查网络
+    if (!window.navigator.onLine) {
+      console.log("网络请求失败，请检查您的网络设置！");
+      return config;
+    }
     let userInfo = {
       token: "",
     };
