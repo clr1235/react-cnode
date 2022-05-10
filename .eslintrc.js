@@ -9,7 +9,8 @@ module.exports = {
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -21,10 +22,12 @@ module.exports = {
   },
   "plugins": [
     "react",
+    "react-hooks",
     "@typescript-eslint"
   ],
   // 添加一些自己的规则
   "rules": {
+    "react-hooks/exhaustive-deps": 'warn',
     // 允许使用require引入文件
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
