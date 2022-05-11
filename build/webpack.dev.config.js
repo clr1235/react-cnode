@@ -17,6 +17,9 @@ module.exports = merge(baseConfig, {
       // 告诉 dev-server 它应该尝试重新连接客户端的次数。当为 true 时，它将无限次尝试重新连接。
       reconnect: true,
     },
+    // 项目使用了react-router-dom的BrowserRouter,所以此项必须设置为true。否则会导致配置的路由404
+    // 也就是说，当使用h5的history API时，必须将 historyApiFallback设置为true。
+    historyApiFallback: true,
     // 启用gzip 压缩
     compress: true,
     port: config.devPort,
