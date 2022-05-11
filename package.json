@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "dev": "cross-env NODE_ENV=development APP_ENV=dev webpack-dev-server --progress  --config build/webpack.dev.config.js",
-    "build": "cross-env NODE_ENV=production APP_ENV=prod webpack --progress --config build/webpack.prod.config.js"
+    "build": "cross-env NODE_ENV=production APP_ENV=prod webpack --progress --config build/webpack.prod.config.js",
+    "json-server": "json-server --watch __json_server_mock__/db.json"
   },
   "repository": {
     "type": "git",
