@@ -2,7 +2,7 @@ node_modules
 dist
 dist-ssr
 *.local
-
+__json_server_mock__
 
 
 
