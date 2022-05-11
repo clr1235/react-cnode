@@ -7,6 +7,9 @@ const NotFound404 = loadable(
 const Login = loadable(
   () => import(/* webpackChunkName: "login" */ "@pages/login/index")
 );
+const ProjectList = loadable(
+  () => import(/* webpackChunkName: "projectList" */ "@pages/projectList/index")
+);
 
 const routes: RouteObject[] = [
   {
@@ -15,6 +18,10 @@ const routes: RouteObject[] = [
       {
         index: true,
         element: <Login />,
+      },
+      {
+        path: "projectList",
+        element: <ProjectList />,
       },
     ],
   },
